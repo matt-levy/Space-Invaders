@@ -96,5 +96,12 @@ public class Invaders : MonoBehaviour
     private void InvaderKilled()
     {
         this.numberKilled++;
+
+        // Reload Scene when all invaders are killed
+        if (this.numberKilled >= this.totalInvaders)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
     }
 }
