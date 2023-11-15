@@ -44,4 +44,15 @@ public class Player : MonoBehaviour
     {
         _isLaserActive = false;
     }
+
+    // Reload scene if player is killed
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Invader") ||
+            other.gameObject.layer == LayerMask.NameToLayer("Missile"))
+        {
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 }
